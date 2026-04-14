@@ -1,0 +1,218 @@
+/*
+ * style.css — Photo Journal PWA
+ * You do NOT need to edit this file for the exercises.
+ * All styles are ready — focus on implementing app.js.
+ */
+
+/* ── Reset ───────────────────────────────────────────────────── */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+  background-color: #f0f4f8;
+  color: #333;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ── Utility ─────────────────────────────────────────────────── */
+.hidden { display: none !important; }
+
+/* ── Install banner ──────────────────────────────────────────── */
+.install-banner {
+  background-color: #1565C0;
+  color: white;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.install-banner p { flex: 1; font-weight: 500; font-size: 0.9rem; }
+
+/* ── Header ──────────────────────────────────────────────────── */
+header {
+  background-color: #2196F3;
+  color: white;
+  padding: 16px 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+header h1 { font-size: 1.3rem; font-weight: 700; }
+
+/* ── Main layout ─────────────────────────────────────────────── */
+main {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+/* ── Cards ───────────────────────────────────────────────────── */
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.card h2 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1565C0;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #E3F2FD;
+}
+
+/* ── Form elements ───────────────────────────────────────────── */
+.form-group { margin-bottom: 14px; }
+
+label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 6px;
+}
+
+input[type="file"] {
+  width: 100%;
+  padding: 12px;
+  border: 2px dashed #90CAF9;
+  border-radius: 8px;
+  background-color: #E3F2FD;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  min-height: 80px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  resize: vertical;
+  transition: border-color 0.2s;
+}
+textarea:focus {
+  outline: none;
+  border-color: #2196F3;
+  box-shadow: 0 0 0 3px rgba(33,150,243,0.15);
+}
+
+/* ── Photo preview ───────────────────────────────────────────── */
+.photo-preview {
+  margin-top: 10px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 2px solid #90CAF9;
+}
+.photo-preview img {
+  width: 100%;
+  max-height: 240px;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── Location text ───────────────────────────────────────────── */
+.location-text {
+  margin-top: 8px;
+  font-size: 0.85rem;
+  color: #666;
+  padding: 8px 10px;
+  background: #f5f5f5;
+  border-radius: 6px;
+  min-height: 36px;
+}
+
+/* ── Buttons ─────────────────────────────────────────────────── */
+.btn {
+  display: inline-block;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  transition: opacity 0.15s, transform 0.1s;
+  font-family: inherit;
+}
+.btn:active { transform: scale(0.97); }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.btn-primary {
+  background-color: #2196F3;
+  color: white;
+  width: 100%;
+  padding: 14px;
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+.btn-primary:hover:not(:disabled) { opacity: 0.9; }
+
+.btn-secondary {
+  background-color: #e0e0e0;
+  color: #333;
+  width: 100%;
+  margin-bottom: 8px;
+}
+.btn-secondary:hover:not(:disabled) { background-color: #d0d0d0; }
+
+.btn-danger {
+  background-color: #ef5350;
+  color: white;
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  margin-top: 6px;
+}
+
+.install-banner .btn { padding: 7px 14px; width: auto; font-size: 0.85rem; }
+#install-btn { background-color: #FFC107; color: #333; }
+#dismiss-btn { background-color: transparent; color: white; border: 1px solid rgba(255,255,255,0.6); }
+
+/* ── Gallery grid ────────────────────────────────────────────── */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 12px;
+}
+
+.gallery-empty {
+  color: #aaa;
+  text-align: center;
+  padding: 32px 16px;
+  font-size: 0.95rem;
+  grid-column: 1 / -1;
+}
+
+.photo-card {
+  background: #fafafa;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: transform 0.15s;
+}
+.photo-card:hover { transform: translateY(-2px); }
+.photo-card img { width: 100%; height: 130px; object-fit: cover; display: block; }
+
+.card-meta { padding: 8px 10px; }
+.card-meta .desc {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #333;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 3px;
+}
+.card-meta .loc,
+.card-meta .date { font-size: 0.72rem; color: #999; margin-bottom: 2px; }

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#2196F3">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="PhotoJournal">
+  <title>Photo Journal</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- INSTALL BANNER — hidden by default, shown by JavaScript -->
+  <div id="install-banner" class="install-banner hidden">
+    <p>📲 Add Photo Journal to your home screen!</p>
+    <button id="install-btn" class="btn">Install</button>
+    <button id="dismiss-btn" class="btn">✕</button>
+  </div>
+
+  <header>
+    <h1>📷 Photo Journal</h1>
+  </header>
+
+  <main>
+
+    <!-- CAPTURE CARD -->
+    <section class="card">
+      <h2>Add New Photo</h2>
+
+      <!-- Camera input: capture="environment" opens rear camera on mobile -->
+      <div class="form-group">
+        <label for="camera-input">Take or Choose a Photo</label>
+        <input type="file" id="camera-input" accept="image/*" capture="environment">
+        <!-- Preview shown after photo is selected (hidden until JS reveals it) -->
+        <div id="photo-preview" class="photo-preview hidden">
+          <img id="preview-img" src="" alt="Selected photo preview">
+        </div>
+      </div>
+
+      <!-- Description textarea -->
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" placeholder="Write something about this photo..." maxlength="500"></textarea>
+      </div>
+
+      <!-- Location button + display -->
+      <div class="form-group">
+        <button id="get-location-btn" class="btn btn-secondary">📍 Get My Location</button>
+        <p id="location-text" class="location-text">No location added yet.</p>
+      </div>
+
+      <!-- Save button -->
+      <button id="save-btn" class="btn btn-primary">💾 Save Photo</button>
+
+      <!-- Notification permission button -->
+      <button id="notify-btn" class="btn btn-secondary">🔔 Enable Notifications</button>
+    </section>
+
+    <!-- GALLERY CARD -->
+    <section class="card">
+      <h2>My Photos</h2>
+      <!-- JavaScript fills this grid with photo cards from localStorage -->
+      <div id="gallery" class="gallery-grid">
+        <p class="gallery-empty">No photos yet. Take your first one above!</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- app.js loaded last so the DOM is fully built before our code runs -->
+  <script src="app.js"></script>
+</body>
+</html>

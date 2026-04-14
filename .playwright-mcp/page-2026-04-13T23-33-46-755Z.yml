@@ -1,0 +1,25 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - paragraph [ref=e3]: 📲 Add Photo Journal to your home screen!
+    - button "Install" [ref=e4] [cursor=pointer]
+    - button "✕" [ref=e5] [cursor=pointer]
+  - banner [ref=e6]:
+    - heading "📷 Photo Journal" [level=1] [ref=e7]
+  - main [ref=e8]:
+    - generic [ref=e9]:
+      - heading "Add New Photo" [level=2] [ref=e10]
+      - generic [ref=e11]:
+        - generic [ref=e12]: Take or Choose a Photo
+        - button "Take or Choose a Photo" [ref=e13] [cursor=pointer]
+      - generic [ref=e14]:
+        - generic [ref=e15]: Description
+        - textbox "Description" [ref=e16]:
+          - /placeholder: Write something about this photo...
+      - generic [ref=e17]:
+        - button "📍 Get My Location" [ref=e18] [cursor=pointer]
+        - paragraph [ref=e19]: No location added yet.
+      - button "💾 Save Photo" [ref=e20] [cursor=pointer]
+      - button "🔔 Enable Notifications" [ref=e21] [cursor=pointer]
+    - generic [ref=e22]:
+      - heading "My Photos" [level=2] [ref=e23]
+      - paragraph [ref=e25]: No photos yet. Take your first one above!

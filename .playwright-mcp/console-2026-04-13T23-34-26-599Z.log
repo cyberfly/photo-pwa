@@ -1,0 +1,6 @@
+[      66ms] [LOG] [App] Initialising Photo Journal... @ http://localhost:8080/app.js:505
+[      67ms] [LOG] [App] Ready. @ http://localhost:8080/app.js:515
+[      71ms] [LOG] [App] Service Worker registered. Scope: http://localhost:8080/ @ http://localhost:8080/app.js:62
+[      71ms] [WARNING] <meta name="apple-mobile-web-app-capable" content="yes"> is deprecated. Please include <meta name="mobile-web-app-capable" content="yes"> @ http://localhost:8080/:0
+[      72ms] [LOG] [App] PWA is installable — showing install banner. @ http://localhost:8080/app.js:99
+[      72ms] [INFO] Banner not shown: beforeinstallpromptevent.preventDefault() called. The page must call beforeinstallpromptevent.prompt() to show the banner. @ http://localhost:8080/:0

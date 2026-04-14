@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!--
+    viewport: makes the page scale correctly on mobile.
+    Without this, mobile browsers zoom out and show a tiny desktop view.
+    Equivalent concept: PHP setting headers for correct encoding.
+  -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Color of the browser address bar on Android -->
+  <meta name="theme-color" content="#2196F3">
+
+  <!-- iOS PWA support (Apple-specific meta tags) -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="PhotoJournal">
+
+  <title>Photo Journal</title>
+
+  <!-- Link to the PWA manifest (like a package.json for your app) -->
+  <link rel="manifest" href="manifest.json">
+
+  <!-- App icon for iOS (Apple does not read manifest icons) -->
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!--
+    INSTALL BANNER
+    Hidden by default. JavaScript shows it when the browser fires
+    the 'beforeinstallprompt' event, meaning the app can be installed.
+  -->
+  <div id="install-banner" class="install-banner hidden">
+    <p>📲 Add Photo Journal to your home screen!</p>
+    <button id="install-btn" class="btn">Install</button>
+    <button id="dismiss-btn" class="btn">✕</button>
+  </div>
+
+  <!-- ── HEADER ── -->
+  <header>
+    <h1>📷 Photo Journal</h1>
+  </header>
+
+  <main>
+
+    <!-- ── CAPTURE SECTION ── -->
+    <section class="card">
+      <h2>Add New Photo</h2>
+
+      <!-- Camera / file input -->
+      <div class="form-group">
+        <label for="camera-input">Take or Choose a Photo</label>
+        <!--
+          capture="environment" opens the back camera on phones.
+          accept="image/*" limits selection to image files only.
+          On desktop browsers this opens the file picker instead.
+        -->
+        <input
+          type="file"
+          id="camera-input"
+          accept="image/*"
+          capture="environment"
+        >
+        <!-- Photo preview (hidden until a photo is selected) -->
+        <div id="photo-preview" class="photo-preview hidden">
+          <img id="preview-img" src="" alt="Selected photo preview">
+        </div>
+      </div>
+
+      <!-- Description -->
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea
+          id="description"
+          placeholder="Write something about this photo..."
+          maxlength="500"
+        ></textarea>
+      </div>
+
+      <!-- Location -->
+      <div class="form-group">
+        <button id="get-location-btn" class="btn btn-secondary">
+          📍 Get My Location
+        </button>
+        <!-- Shows coordinates after user clicks the button above -->
+        <p id="location-text" class="location-text">No location added yet.</p>
+      </div>
+
+      <!-- Save -->
+      <button id="save-btn" class="btn btn-primary">💾 Save Photo</button>
+
+      <!-- Notification permission -->
+      <button id="notify-btn" class="btn btn-secondary">
+        🔔 Enable Notifications
+      </button>
+    </section>
+
+    <!-- ── GALLERY SECTION ── -->
+    <section class="card">
+      <h2>My Photos</h2>
+      <!--
+        The gallery grid.
+        JavaScript populates this with photo cards from localStorage.
+      -->
+      <div id="gallery" class="gallery-grid">
+        <p class="gallery-empty">No photos yet. Take your first one above!</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Load our app logic last so the DOM is ready -->
+  <script src="app.js"></script>
+</body>
+</html>

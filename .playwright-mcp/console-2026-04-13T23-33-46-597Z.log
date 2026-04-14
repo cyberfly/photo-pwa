@@ -1,0 +1,9 @@
+[      38ms] [LOG] [App] Initialising Photo Journal... @ http://localhost:8080/app.js:505
+[      39ms] [LOG] [App] Ready. @ http://localhost:8080/app.js:515
+[      54ms] [WARNING] <meta name="apple-mobile-web-app-capable" content="yes"> is deprecated. Please include <meta name="mobile-web-app-capable" content="yes"> @ http://localhost:8080/:0
+[      56ms] [ERROR] Failed to load resource: the server responded with a status of 404 (File not found) @ http://localhost:8080/favicon.ico:0
+[      61ms] [LOG] [App] PWA is installable — showing install banner. @ http://localhost:8080/app.js:99
+[      61ms] [INFO] Banner not shown: beforeinstallpromptevent.preventDefault() called. The page must call beforeinstallpromptevent.prompt() to show the banner. @ http://localhost:8080/:0
+[     157ms] [LOG] [App] Service Worker registered. Scope: http://localhost:8080/ @ http://localhost:8080/app.js:62
+[   19066ms] [LOG] [App] Photo saved, id: 1776123245662 @ http://localhost:8080/app.js:286
+[   32678ms] [LOG] [App] Photo deleted, id: 1776123245662 @ http://localhost:8080/app.js:397
